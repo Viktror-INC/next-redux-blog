@@ -1,0 +1,15 @@
+@import "/styles/global.scss";
+
+.inputWrap {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 5px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  input {
+    padding: 10px;
+    border: none;
+  }
+}

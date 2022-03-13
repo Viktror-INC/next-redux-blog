@@ -1,0 +1,21 @@
+@import "/styles/global.scss";
+
+.loginMenu {
+  display: flex;
+  width: 100%;
+
+  li {
+    width: 200%;
+    list-style: none;
+    text-align: center;
+
+    a {
+      color: $black;
+      transition: all 0.3s linear;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

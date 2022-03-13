@@ -1,0 +1,242 @@
+@import "./global.scss";
+
+
+.social {
+  display: flex;
+  column-gap: 30px;
+
+  li {
+    list-style: none;
+  }
+}
+
+.mainSlide {
+  background-color: $grey;
+}
+
+.mainSlideInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 90px;
+  gap: 100px;
+
+  @media only screen and (max-width: $tab) {
+    flex-direction: column;
+  }
+
+  @media only screen and (max-width: $mob) {
+    padding: 50px 20px;
+  }
+}
+
+.mainSlideTitle {
+  display: flex;
+  flex-direction: column;
+  max-width: 354px;
+
+  @media only screen and (max-width: $mob) {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .titleWrap {
+    display: inline-block;
+    flex-wrap: nowrap;
+
+    h1 {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+
+      @media only screen and (max-width: $mob) {
+        display: flex;
+        flex-direction: column;
+        font-size: 30px;
+      }
+    }
+  }
+
+  .description {
+    font-size: 30px;
+    margin-top: 20px;
+    color: $greyDark;
+
+    @media only screen and (max-width: $mob) {
+      font-size: 20px;
+    }
+  }
+}
+
+.main {
+  padding-top: 39px;
+
+  @media only screen and (max-width: $tab) {
+    padding-top: 10px;
+  }
+}
+
+.mainPost {
+  border: 3px solid $grey;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 5px 6px 0px rgba(34, 60, 80, 0.2);
+  column-gap: 10px;
+
+  @media only screen and (max-width: $tab) {
+    flex-direction: column-reverse;
+  }
+}
+
+.textBLock {
+  width: 100%;
+  max-width: 460px;
+  padding: 45px 0 0 60px;
+
+  @media only screen and (max-width: $tab) {
+    margin-top: 20px;
+    max-width: 100%;
+    padding: 10px 20px;
+  }
+
+  h2 {
+    font-size: 30px;
+
+    @media only screen and (max-width: $tab) {
+      text-align: center;
+    }
+  }
+}
+
+.textBLockDescrip {
+  display: block;
+  padding-top: 27px;
+  color: $greyDark;
+  font-size: 14px;
+}
+
+.textBLockBottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.date {
+  color: $greyDark;
+}
+
+.mainPostImage {
+  width: 100%;
+}
+
+.otherPosts {
+  display: flex;
+  margin-top: 23px;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 33px;
+  row-gap: 20px;
+
+  @media only screen and (max-width: $tab) {
+    flex-wrap: wrap;
+  }
+
+  @media only screen and (max-width: $tab) {
+    justify-content: space-around;
+    column-gap: 10px;
+  }
+
+  li {
+    list-style: none;
+    box-shadow: 0px 5px 6px 0px rgba(34, 60, 80, 0.2);
+    border: 3px solid $grey;
+    padding: 16px;
+    border-radius: 5px;
+    h3 {
+      margin-top: 16px;
+    }
+  }
+}
+
+.otherPostDescrip {
+  display: block;
+  padding-top: 27px;
+  color: $greyDark;
+  font-size: 14px;
+}
+
+.bigPost {
+  background-color: $grey;
+  margin-top: 43px;
+  display: flex;
+
+  @media only screen and (max-width: $tab) {
+    flex-direction: column-reverse;
+  }
+}
+
+.bigPostTextBlock {
+  width: 100%;
+  max-width: 450px;
+  padding: 95px 65px;
+
+  @media only screen and (max-width: $tab) {
+    max-width: 100%;
+    padding: 20px 10px 10px;
+  }
+
+  h2 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
+
+.bigPostDescrip {
+  display: block;
+  padding-top: 27px;
+  color: $greyDark;
+  font-size: 16px;
+}
+
+.bigPostBottom {
+  font-size: 16px;
+}
+
+.seeMore {
+  display: flex;
+  width: 100%;
+  max-width: 122px;
+  font-size: 16px;
+  margin: 40px 0 0 auto;
+  background-color: $purple;
+  padding: 9px;
+  border-radius: 5px;
+  color: $white;
+  column-gap: 7px;
+}
+
+.footer {
+  border-top: 3px solid $grey;
+  margin-top: 43px;
+  padding: 30px 0;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+
+  @media only screen and (max-width: $tab) {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    row-gap: 20px;
+  }
+
+  .social {
+    @media only screen and (max-width: $tab) {
+      justify-content: center;
+    }
+  }
+}

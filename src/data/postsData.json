@@ -1,0 +1,20 @@
+[
+  {
+    "title": "long established",
+    "image": "/images/posts/post2.png",
+    "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+    "date":"May 19th 2020"
+  },
+  {
+    "title": "long established",
+    "image": "/images/posts/post3.png",
+    "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+    "date":"May 20th 2020"
+  },
+  {
+    "title": "long established",
+    "image": "/images/posts/post4.png",
+    "text": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that....",
+    "date":"May 21th 2020"
+  }
+]

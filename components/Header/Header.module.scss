@@ -1,0 +1,160 @@
+@import "/styles/global.scss";
+
+.header {
+    padding: 35px 0;
+  }
+  
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+    padding: 0 20px;
+  
+    @media only screen and (max-width: $tab) {
+      padding: 0 20px 0 80px;
+    }
+  }
+  
+  .menuButton {
+    display: none;
+    opacity: 1;
+    // transition: all 0.3s linear;
+  
+    @media only screen and (max-width: $tab) {
+      left: 20px;
+      position: fixed;
+      display: flex;
+      width: 50px;
+      height: 50px;
+      background: url(/images/more.svg) rgba(255, 255, 255, 1);
+      background-repeat: no-repeat;
+      background-size: 30px 30px, 100%;
+      background-position: center;
+      border: none;
+      z-index: 1;
+      padding: 10px;
+      border-radius: 25px;
+    }
+  }
+  
+  .search {
+    display: flex;
+    column-gap: 10px;
+  
+    input {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: $greyDark;
+      width: 100%;
+      max-width: 66px;
+    }
+  }
+  
+  .navigateWrap {
+    display: flex;
+    z-index: 0;
+  
+    @media only screen and (max-width: $tab) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      transition: all 0.3s linear;
+      width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+  }
+  
+  .headerContentAcive {
+    .menuButton {
+      opacity: 0;
+      z-index: 0;
+    }
+  
+    .navigateWrap {
+      @media only screen and (max-width: $tab) {
+        background-color: $greyTransparent;
+        z-index: 3;
+        height: 100%;
+        overflow-y: hidden;
+  
+        .leftSideMenu {
+          transform: translateX(0%);
+          z-index: 5;
+        }
+      }
+    }
+  }
+  
+  .leftSideMenu {
+    display: flex;
+    column-gap: 28px;
+    transition: all 0.3s linear;
+    z-index: 5;
+  
+    @media only screen and (max-width: $tab) {
+      transform: translateX(-100%);
+      background-color: $greyDark;
+      flex-direction: column;
+      width: 50%;
+      min-height: 100%;
+      padding: 10px;
+    }
+  
+    @media only screen and (max-width: $mob) {
+      width: 60%;
+    }
+  
+    .social {
+      @media only screen and (max-width: $tab) {
+        margin: auto 0 0;
+        order: 1;
+      }
+    }
+  }
+  
+  .rightSideMenu {
+    @media only screen and (max-width: $tab) {
+      width: 50%;
+    }
+  
+    @media only screen and (max-width: $mob) {
+      width: 40%;
+    }
+  }
+
+  .navigate {
+    display: flex;
+    column-gap: 30px;
+  
+    @media only screen and (max-width: $tab) {
+      margin-top: 15px;
+      flex-direction: column;
+      row-gap: 10px;
+      order: 1;
+    }
+  
+    li {
+      list-style: none;
+      font-size: 16px;
+  
+      @media only screen and (max-width: $tab) {
+        font-size: 18px;
+        color: $white;
+      }
+    }
+  }
+  
+
+
+  .social {
+    display: flex;
+    column-gap: 30px;
+  
+    li {
+      list-style: none;
+    }
+  }
+  
