@@ -62,4 +62,8 @@
 
 .buttonsWrap:hover > .logInButtonActive {
   background-color: $greyNormal;
+
+  @media only screen and (max-width: $tab) {
+    background-color: inherit;
+  }
 }
