@@ -6,18 +6,13 @@ import styles from "./Input.module.scss";
 export default function Input(props: TInput) {
   const { name, placeholder, setValue, value, className, type } = props;
   const onSetValue = (event) => {
-    if (type == "file") {
-      console.log("file");
-
-      return setValue(event.target.files);
-    }
-
-    setValue(event.currentTarget.value);
+    setValue(event);
   };
   return (
     <div className={classNames(styles.inputWrap, className)}>
       <span>{name}</span>
       <input
+        name={name}
         required
         type={type}
         value={value}

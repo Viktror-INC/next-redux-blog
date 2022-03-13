@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 // @ts-ignore
@@ -18,18 +18,24 @@ export default function Header() {
 
   /**Show LogIn Form */
   const [showForm, setShowForm] = useState(false);
+  const [lockScroll, setLockScroll] = useState("visible");
+
   const onMenuButton = (param: boolean) => {
     setShowMenu(param);
 
     if (!param) {
       // unLock body scroll
-      document.body.style.overflow = "visible";
+      setLockScroll("visible");
       return;
     }
 
     // Lock body scroll
-    document.body.style.overflow = "hidden";
+    setLockScroll("hidden");
   };
+
+  useEffect(() => {
+    document.body.style.overflow = lockScroll;
+  }, [lockScroll]);
 
   return (
     <header className={styles.header}>

@@ -23,11 +23,25 @@ export default function AddPost() {
     }
   };
 
-  const sendForm = () => {
-    
-  };
+  const sendForm = () => {};
 
-  useEffect(() => {}, []);
+  const checkOnEmpty = (event) => {
+    const { name, value, file } = event.target;
+    switch (name) {
+      case "Post title":
+        setTitle(value);
+        break;
+      case "Post Text":
+        setText(value);
+        break;
+      case "Post date":
+        setDate(value);
+        break;
+      case "Post Image":
+        setImage(file);
+        break;
+    }
+  };
 
   return (
     <>
@@ -40,7 +54,7 @@ export default function AddPost() {
         <Input
           name={"Post title"}
           placeholder={"Write your title"}
-          setValue={setTitle}
+          setValue={checkOnEmpty}
           value={title}
           className={styles.inputWidget}
         />
@@ -48,7 +62,7 @@ export default function AddPost() {
         <TextField
           name={"Post Text"}
           placeholder={"It is a long established fact that a..."}
-          setValue={setText}
+          setValue={checkOnEmpty}
           value={text}
           className={styles.inputWidget}
         />
@@ -56,14 +70,14 @@ export default function AddPost() {
         <Input
           name={"Post date"}
           placeholder={"May 19th 2020"}
-          setValue={setDate}
+          setValue={checkOnEmpty}
           value={date}
           className={styles.inputWidget}
         />
 
         <Input
           name={"Post Image"}
-          setValue={setImage}
+          setValue={checkOnEmpty}
           className={styles.inputWidget}
           type="file"
         />

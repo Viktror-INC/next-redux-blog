@@ -7,15 +7,15 @@ import { TLogInForm } from "./@types";
 import styles from "./LogInForm.module.scss";
 /* @ts-ignore */
 import logins from "/api/logins.json";
+import classNames from "classnames";
 
 export default function LogInForm(props: TLogInForm) {
   const dispatch = useDispatch();
-  const { login } = useSelector((state: TUserLogin) => state.loginSlice);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const { setShowForm } = props;
+  const [wrongInput, setWrongInput] = useState(false);
 
-  // console.log("logins", logins);
+  const { setShowForm } = props;
 
   const checkLogIn = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -23,21 +23,32 @@ export default function LogInForm(props: TLogInForm) {
     const currentData = { username: userName, password: password };
 
     logins.filter((item) => {
-      // console.log("item", item);
-      // console.log("currentData", currentData);
-
       if (
         item.username == currentData.username &&
         item.password == currentData.password
       ) {
         console.log("loggined");
+        setWrongInput(false);
         setShowForm(false);
 
         return dispatch(setLogin(true));
       }
 
-      // dispatch(setLogin(false));
+      setWrongInput(true);
     });
+  };
+
+  const checkOnEmpty = (event) => {
+    const { name, value } = event.target;
+    setWrongInput(false)
+    switch (name) {
+      case "Name":
+        setUserName(value);
+        break;
+      case "Password":
+        setPassword(value);
+        break;
+    }
   };
 
   return (
@@ -48,14 +59,20 @@ export default function LogInForm(props: TLogInForm) {
       <Input
         name={"Name"}
         placeholder={"user name"}
-        setValue={setUserName}
+        setValue={checkOnEmpty}
         value={userName}
+        className={classNames(styles.inputWidget, {
+          [styles.wrongInput]: wrongInput,
+        })}
       />
       <Input
         name={"Password"}
         placeholder={"123456"}
-        setValue={setPassword}
+        setValue={checkOnEmpty}
         value={password}
+        className={classNames(styles.inputWidget, {
+          [styles.wrongInput]: wrongInput,
+        })}
       />
       <button
         type="submit"
