@@ -33,13 +33,27 @@
 
 .loginMenuWrap {
   display: none;
-  background-color: $greyDark;
+  background-color: $greyNormal;
   position: absolute;
   top: 26px;
   left: 50%;
   transform: translateX(-50%);
   width: 700%;
   padding: 20px;
+
+  @media only screen and (max-width: $tab) {
+    margin-top: 15px;
+    padding: 0;
+    display: flex;
+    position: relative;
+    transform: unset;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: left;
+    font-size: 18px;
+    color: $white;
+  }
 }
 
 .buttonsWrap:hover > .loginMenuWrap {
@@ -47,5 +61,5 @@
 }
 
 .buttonsWrap:hover > .logInButtonActive {
-  background-color: $greyDark;
+  background-color: $greyNormal;
 }
