@@ -18,7 +18,7 @@ export default function Input(props: TInput) {
     <div className={classNames(styles.inputWrap, className)}>
       <span>{name}</span>
       <input
-        
+        required
         type={type}
         value={value}
         placeholder={placeholder}
