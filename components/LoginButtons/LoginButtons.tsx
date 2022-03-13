@@ -11,20 +11,16 @@ export default function LoginButtons(props: TLoginButtons) {
   const { setShowForm } = props;
 
   const { login } = useSelector((state: TUserLogin) => state.loginSlice);
-  const dispatch = useDispatch();
 
   return (
     <div className={styles.buttonsWrap}>
       {login ? (
         <>
           <button
-            onClick={() => {
-              dispatch(setLogin(false));
-            }}
             className={styles.logInButtonActive}
           ></button>
           <div  className={styles.loginMenuWrap}>
-            <LoginMenu/>
+            <LoginMenu />
           </div>
         </>
       ) : (

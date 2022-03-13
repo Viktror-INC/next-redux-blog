@@ -47,7 +47,9 @@ export default function Home() {
               </div>
               <span className={styles.description}>why learn how to blog?</span>
             </div>
-            <Image src="/images/croods.png" width={476} height={323} />
+            <div className={styles.mainImage}>
+              <Image src="/images/croods.png" width={476} height={323} />
+            </div>
           </div>
         </div>
       </div>

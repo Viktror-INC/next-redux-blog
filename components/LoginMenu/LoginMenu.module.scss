@@ -3,11 +3,20 @@
 .loginMenu {
   display: flex;
   width: 100%;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 10px;
 
   li {
-    width: 200%;
+    width: 100%;
     list-style: none;
     text-align: center;
+    padding: 10px 0;
+    
+
+    @media only screen and (max-width: $tab) {
+      background-color: $greyNormal;
+    }
 
     a {
       color: $black;
@@ -15,6 +24,7 @@
 
       &:hover {
         color: $white;
+        cursor: pointer;
       }
     }
   }
