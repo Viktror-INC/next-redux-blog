@@ -8,6 +8,7 @@ import Header from "../components/Header/Header";
 import { TUserLogin } from "../store/slice/userLogins/@types";
 import { useSelector } from "react-redux";
 import { TPostsSlice } from "../store/slice/postsSlice/@types";
+import Posts from "../components/OtherPosts/Posts";
 
 export default function Home() {
   const { login } = useSelector((state: TUserLogin) => state.loginSlice);
@@ -20,9 +21,8 @@ export default function Home() {
         return item;
       }
     })
-    .slice(-3).reverse();
-
-  console.log("otherPosts", otherPosts.slice(-3));
+    .slice(-3)
+    .reverse();
 
   return (
     <div>
@@ -70,28 +70,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <ul className={styles.otherPosts}>
-            {otherPosts.map((item, index) => {
-              return (
-                <li key={index}>
-                  <Image
-                    src={item.imgUrl}
-                    width={297}
-                    height={179}
-                    layout="responsive"
-                    alt={item.title}
-                  />
-                  <h3>{item.title}</h3>
-                  <span className={styles.otherPostDescrip}>{item.text}</span>
-                  <div className={styles.textBLockBottom}>
-                    <span className={styles.date}>{item.date}</span>
-                    <span className={styles.more}>Read more</span>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-
+          <Posts posts={otherPosts} />
           <div className={styles.bigPost}>
             <div className={styles.bigPostTextBlock}>
               <h2>What is Lorem Ipsum?</h2>

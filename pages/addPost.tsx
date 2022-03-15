@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Header from "../components/Header/Header";
@@ -11,7 +12,7 @@ import styles from "/styles/AddPost.module.scss";
 export default function AddPost() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(moment().format("MMM Do YY") || "");
   const [image, setImage] = useState();
   const [postType, setPostType] = useState("");
   const defaultValuePost = "Choose post type";

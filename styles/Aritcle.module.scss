@@ -1,0 +1,17 @@
+@import "./global.scss";
+
+.posts {
+  grid-template-columns: auto;
+
+  li {
+    [class~="postBlock"] {
+      display: flex;
+      column-gap: 20px;
+    }
+
+    [class~="textBLock"] {
+      width: 100%;
+      max-width: 460px;
+    }
+  }
+}
