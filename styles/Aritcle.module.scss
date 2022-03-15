@@ -1,17 +1,33 @@
 @import "./global.scss";
 
 .posts {
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
 
   li {
     [class~="postBlock"] {
       display: flex;
       column-gap: 20px;
+
+      @media only screen and (max-width: $tab) {
+        flex-direction: column;
+      }
+    }
+
+    [class~="postImage"] {
+      width: 100%;
     }
 
     [class~="textBLock"] {
       width: 100%;
       max-width: 460px;
+
+      @media only screen and (max-width: $tab) {
+        max-width: 100%;
+      }
+
+      h3 {
+        text-align: center;
+      }
     }
   }
 }

@@ -92,10 +92,10 @@ export default function Home() {
             </div>
             <Image src="/images/posts/post5.png" width={525} height={500} />
           </div>
-          <Link href="/">
+          <Link href="/articles">
             <a className={styles.seeMore}>
               <span>See more</span>
-              <Image src="/images/more.png" width={20} height={20} alt="more" />
+              <Image src="/images/plus.svg" width={20} height={20} alt="more" />
             </a>
           </Link>
         </div>

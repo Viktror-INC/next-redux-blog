@@ -6,18 +6,23 @@ import styles from "./Posts.module.scss";
 
 export default function Posts(props: TPosts) {
   const { posts, className } = props;
+  const newPosts = [...posts].reverse();
+
   return (
     <ul className={classNames(styles.otherPosts, className)}>
-      {posts.map((item, index) => {
+      {newPosts.map((item, index) => {
         return (
           <li key={index}>
             <div className={classNames("postBlock")}>
-              <Image
-                src={item.imgUrl}
-                width={297}
-                height={179}
-                alt={item.title}
-              />
+              <div className={classNames("postImage")}>
+                <Image
+                  src={item.imgUrl}
+                  width={297}
+                  height={179}
+                  alt={item.title}
+                  layout="responsive"
+                />
+              </div>
               <div className={classNames("textBLock")}>
                 <h3>{item.title}</h3>
                 <span className={styles.otherPostDescrip}>{item.text}</span>

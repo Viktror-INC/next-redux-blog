@@ -13,9 +13,6 @@ function Layout(props) {
 
   const router = useRouter();
   const dispatch = useDispatch();
-
-  console.log("posts", posts);
-
   useEffect(() => {
     const signInRoutes = ["/addPost"];
     if (!login) {
