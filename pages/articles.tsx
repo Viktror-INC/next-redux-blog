@@ -8,12 +8,12 @@ import styles from "/styles/Aritcle.module.scss";
 
 export default function Articles() {
   const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
-
+  const newPosts = [...posts].reverse();
   return (
     <div>
       <Header />
       <div className={styles.container}>
-        <Posts posts={posts} className={styles.posts}/>
+        <Posts posts={newPosts} className={styles.posts} />
       </div>
     </div>
   );

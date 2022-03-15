@@ -6,11 +6,10 @@ import styles from "./Posts.module.scss";
 
 export default function Posts(props: TPosts) {
   const { posts, className } = props;
-  const newPosts = [...posts].reverse();
-
+  
   return (
     <ul className={classNames(styles.otherPosts, className)}>
-      {newPosts.map((item, index) => {
+      {posts.map((item, index) => {
         return (
           <li key={index}>
             <div className={classNames("postBlock")}>
