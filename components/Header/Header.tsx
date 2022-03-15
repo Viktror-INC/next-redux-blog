@@ -50,7 +50,16 @@ export default function Header() {
             className={styles.menuButton}
           ></button>
           <div>
-            <Image src="/images/logo.png" width={102} height={24} alt="logo" />
+            <Link href="/">
+              <a>
+                <Image
+                  src="/images/logo.png"
+                  width={102}
+                  height={24}
+                  alt="logo"
+                />
+              </a>
+            </Link>
           </div>
           <div className={styles.search}>
             <Image

@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: '/api/cloudinary/:path*',
-        destination: 'https://api.cloudinary.com/:path*',
-      },
-    ]
+  images: {
+    domains: ["res.cloudinary.com"],
+    formats: ["image/avif", "image/webp"],
   },
 };
 

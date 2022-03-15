@@ -9,7 +9,41 @@
   text-align: center;
 
   input {
-    padding: 10px;
+    margin-top: 20px;
+    // padding: 10px;
     border: none;
+    font-size: 18px;
+  }
+}
+
+.inputFIle {
+  width: 100%;
+  position: relative;
+
+  input {
+    display: none;
+  }
+
+  label {
+    width: 100%;
+    display: block;
+  }
+}
+
+.uploadInner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
+
+  span {
+    font-size: 18px;
+    transition: all 0.3s linear;
+    border-radius: 10px;
+    padding: 20px;
+
+    &:hover {
+      background-color: $greyNormal;
+    }
   }
 }

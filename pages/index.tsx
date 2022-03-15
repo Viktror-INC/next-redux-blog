@@ -6,32 +6,24 @@ import classNames from "classnames";
 import Link from "next/link";
 import Header from "../components/Header/Header";
 import { TUserLogin } from "../store/slice/userLogins/@types";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { TPostsSlice } from "../store/slice/postsSlice/@types";
-import { useEffect } from "react";
-import axios from "axios";
-import { setPosts } from "../store/slice/postsSlice/postsSlice";
 
 export default function Home() {
   const { login } = useSelector((state: TUserLogin) => state.loginSlice);
   const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://6229bec8be12fc4538a69297.mockapi.io/Posts"
-        );
-        dispatch(setPosts(data));
-      } catch (error) {
-        console.log(error);
+  /**Получаем 3 последних Других Постов */
+  const otherPosts = posts
+    .filter((item) => {
+      if (item.type == "other") {
+        return item;
       }
-    };
+    })
+    .slice(-3).reverse();
 
-    getPosts();
-  }, [dispatch]);
+  console.log("otherPosts", otherPosts.slice(-3));
+
   return (
     <div>
       <Header />
@@ -79,15 +71,15 @@ export default function Home() {
             </div>
           </div>
           <ul className={styles.otherPosts}>
-            {postsData.map((item, index) => {
+            {otherPosts.map((item, index) => {
               return (
                 <li key={index}>
                   <Image
-                    src={item.image}
+                    src={item.imgUrl}
                     width={297}
                     height={179}
                     layout="responsive"
-                    alt={item.image}
+                    alt={item.title}
                   />
                   <h3>{item.title}</h3>
                   <span className={styles.otherPostDescrip}>{item.text}</span>

@@ -6,6 +6,7 @@ export type TPostsSlice = {
       text: string;
       date: string;
       imgUrl: string;
+      type: string;
     }[];
   };
 };

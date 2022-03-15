@@ -5,4 +5,5 @@ export type TInput = {
   value?: string;
   className?: string;
   type?: string;
+  uploadText?: string;
 };

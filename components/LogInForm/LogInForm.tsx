@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { TUserLogin } from "../../store/slice/userLogins/@types";
+import { useDispatch } from "react-redux";
 import { setLogin } from "../../store/slice//userLogins/userLogin";
 import Input from "../Input/Input";
 import { TLogInForm } from "./@types";
@@ -39,9 +38,9 @@ export default function LogInForm(props: TLogInForm) {
   };
 
   const checkOnEmpty = (event) => {
-    const { name, value } = event.target;
-    setWrongInput(false)
-    switch (name) {
+    const { id, value } = event.target;
+    setWrongInput(false);
+    switch (id) {
       case "Name":
         setUserName(value);
         break;

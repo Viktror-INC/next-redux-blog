@@ -1,0 +1,59 @@
+@import "/styles/global.scss";
+
+.selectWrap {
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+}
+
+.currentValue {
+  width: 100%;
+  display: flex;
+  background-color: $white;
+  padding: 20px 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectImage {
+  position: absolute;
+  right: 20px;
+  transition: all 0.3s linear;
+}
+
+.revertImage {
+  transform: rotate(180deg);
+}
+
+.menuWrap {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s linear;
+  width: 100%;
+  background-color: $white;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  li {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+
+    &:hover {
+      background-color: $greyNormal;
+    }
+  }
+}
+
+.showMenu {
+  z-index: 2;
+  opacity: 1;
+}

@@ -1,6 +1,5 @@
 @import "./global.scss";
 
-
 .social {
   display: flex;
   column-gap: 30px;
@@ -136,21 +135,16 @@
 }
 
 .otherPosts {
-  display: flex;
+  display: grid;
   margin-top: 23px;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 33px;
+  grid-column-gap: 33px;
+  -moz-column-gap: 33px;
+  column-gap: 25px;
+  grid-row-gap: 20px;
   row-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: center;
 
-  @media only screen and (max-width: $tab) {
-    flex-wrap: wrap;
-  }
-
-  @media only screen and (max-width: $tab) {
-    justify-content: space-around;
-    column-gap: 10px;
-  }
 
   li {
     list-style: none;
