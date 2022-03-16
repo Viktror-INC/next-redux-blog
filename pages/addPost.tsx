@@ -22,7 +22,6 @@ export default function AddPost() {
   const dispatch = useDispatch();
   const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
   const reversePosts = [...posts].reverse();
-  const lastPostId = reversePosts[0].id;
 
   const uploadImage = async () => {
     if (image) {
@@ -45,7 +44,8 @@ export default function AddPost() {
   };
 
   const sendForm = async () => {
-    if (title && text && date && image && postType) {
+    if (title && text && date && image && postType && reversePosts) {
+      const lastPostId = reversePosts[0].id;
       const data = {
         id: Number(lastPostId) + 1,
         title: title,
