@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Header from "../components/Header/Header";
-import Posts from "../components/OtherPosts/Posts";
+import Posts from "../components/Posts/Posts";
 import { TPostsSlice } from "../store/slice/postsSlice/@types";
 import styles from "/styles/Aritcle.module.scss";
 

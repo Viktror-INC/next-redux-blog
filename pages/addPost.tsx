@@ -1,11 +1,13 @@
 import axios from "axios";
 import moment from "moment";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Input from "../components/Input/Input";
 import Select from "../components/Select/Select";
 import TextField from "../components/TextField/TextField";
+import { TPostsSlice } from "../store/slice/postsSlice/@types";
 import { setPosts } from "../store/slice/postsSlice/postsSlice";
 import styles from "/styles/AddPost.module.scss";
 
@@ -16,10 +18,11 @@ export default function AddPost() {
   const [image, setImage] = useState();
   const [postType, setPostType] = useState("");
   const defaultValuePost = "Choose post type";
-
   const [invalidFields, setInvalidFields] = useState([]);
-
   const dispatch = useDispatch();
+  const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
+  const reversePosts = [...posts].reverse();
+  const lastPostId = reversePosts[0].id;
 
   const uploadImage = async () => {
     if (image) {
@@ -44,6 +47,7 @@ export default function AddPost() {
   const sendForm = async () => {
     if (title && text && date && image && postType) {
       const data = {
+        id: Number(lastPostId) + 1,
         title: title,
         text: text,
         date: date,
@@ -136,6 +140,7 @@ export default function AddPost() {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

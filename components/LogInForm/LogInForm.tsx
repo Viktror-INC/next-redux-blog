@@ -26,7 +26,6 @@ export default function LogInForm(props: TLogInForm) {
         item.username == currentData.username &&
         item.password == currentData.password
       ) {
-        console.log("loggined");
         setWrongInput(false);
         setShowForm(false);
 

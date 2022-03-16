@@ -1,0 +1,14 @@
+@import "/styles/global.scss";
+
+.seeMore {
+  display: flex;
+  width: 100%;
+  max-width: 122px;
+  font-size: 16px;
+  background-color: $purple;
+  padding: 9px;
+  border-radius: 5px;
+  color: $white;
+  column-gap: 7px;
+  white-space: nowrap;
+}

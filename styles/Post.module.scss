@@ -1,0 +1,34 @@
+@import "/styles/global.scss";
+
+.postWrap {
+  width: 100%;
+  max-width: 765px;
+  display: flex;
+  flex-direction: column;
+  margin: 45px auto 0;
+
+  h1 {
+    font-size: 45px;
+
+    @media only screen and (max-width: $tab) {
+      font-size: 25px;
+    }
+  }
+
+  span {
+    font-size: 18px;
+    margin-top: 20px;
+    color: $greyDark;
+  }
+
+  hr {
+    border-top: 1px solid $greyDark;
+    margin-top: 30px;
+  }
+
+  p {
+    margin-top: 30px;
+    color: $greyDark;
+    font-size: 16px;
+  }
+}

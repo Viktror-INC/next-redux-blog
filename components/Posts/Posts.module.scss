@@ -26,6 +26,15 @@
   }
 }
 
+.postLink {
+  color: $black;
+  transition: all 0.3s linear;
+
+  &:hover {
+    color: $greyDark;
+  }
+}
+
 .otherPostDescrip {
   display: block;
   padding-top: 27px;
@@ -50,4 +59,12 @@
 
 .date {
   color: $greyDark;
+}
+
+.more {
+  color: $black;
+
+  &:hover {
+    color: $greyDark;
+  }
 }
