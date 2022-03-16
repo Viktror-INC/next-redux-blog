@@ -191,6 +191,7 @@
   [class~="postBlock"] {
     display: flex;
     flex-direction: row-reverse;
+    column-gap: 20px;
   }
 
   [class~="postImage"] {
