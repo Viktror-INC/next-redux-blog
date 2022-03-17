@@ -1,14 +1,12 @@
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import classNames from "classnames";
-import Link from "next/link";
 import Header from "../components/Header/Header";
 import { TUserLogin } from "../store/slice/userLogins/@types";
 import { useSelector } from "react-redux";
 import { TPostsSlice } from "../store/slice/postsSlice/@types";
 import Posts from "../components/Posts/Posts";
 import Footer from "../components/Footer/Footer";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonMore from "../components/ButtonMore/ButtonMore";
 
 export default function Home() {
@@ -82,8 +80,8 @@ export default function Home() {
         <div className={styles.container}>
           <Posts posts={mainPost} className={styles.mainPost} />
           <Posts posts={otherPosts} />
-          <div className={styles.bigPost}>
-            <Posts posts={bigPost} className={styles.posts} />
+          <div className={styles.bigPostWrap}>
+            <Posts posts={bigPost} className={styles.bigPost} />
           </div>
           <div className={styles.ButtonMoreWrap}>
             <ButtonMore text={"See more"} link={"/articles"} />

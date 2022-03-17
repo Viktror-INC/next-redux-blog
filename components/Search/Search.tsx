@@ -18,8 +18,6 @@ export default function Search() {
     }
   });
 
-  console.log("currentSearch", currentSearch);
-
   const setInputValue = (event) => {
     setShowSearchList(true);
     setValue(event.target.value);

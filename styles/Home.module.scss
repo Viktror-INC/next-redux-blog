@@ -80,17 +80,6 @@
   }
 }
 
-.mainPost {
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0px 5px 6px 0px rgba(34, 60, 80, 0.2);
-  column-gap: 10px;
-
-  @media only screen and (max-width: $tab) {
-    flex-direction: column-reverse;
-  }
-}
-
 .textBLock {
   width: 100%;
   max-width: 460px;
@@ -173,6 +162,10 @@
   [class~="postBlock"] {
     display: flex;
     column-gap: 20px;
+
+    @media only screen and (max-width: $tab) {
+      flex-direction: column;
+    }
   }
 
   [class~="postImage"] {
@@ -180,17 +173,21 @@
   }
 }
 
-.bigPost {
+.bigPostWrap {
   background-color: $grey;
   margin-top: 43px;
   display: flex;
 }
 
-.posts {
+.bigPost {
   [class~="postBlock"] {
     display: flex;
     flex-direction: row-reverse;
     column-gap: 20px;
+
+    @media only screen and (max-width: $tab) {
+      flex-direction: column;
+    }
   }
 
   [class~="postImage"] {
