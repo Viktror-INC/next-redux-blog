@@ -57,13 +57,23 @@ export default function Home() {
               <div className={styles.titleWrap}>
                 <h1>
                   Make better coffee
-                  <Image src="/images/coffee.png" width={70} height={67} />
+                  <Image
+                    src="/images/coffee.png"
+                    width={70}
+                    height={67}
+                    alt="coffee picture"
+                  />
                 </h1>
               </div>
               <span className={styles.description}>why learn how to blog?</span>
             </div>
             <div className={styles.mainImage}>
-              <Image src="/images/croods.png" width={476} height={323} />
+              <Image
+                src="/images/croods.png"
+                width={476}
+                height={323}
+                alt="croods picture"
+              />
             </div>
           </div>
         </div>
