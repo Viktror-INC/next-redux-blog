@@ -4,13 +4,13 @@ import { TTextField } from "./@types";
 import styles from "./TextField.module.scss";
 
 export default function TextField(props: TTextField) {
-  const { name, placeholder, className, value, setValue } = props;
+  const { name, id, placeholder, className, value, setValue } = props;
 
   return (
     <div className={classNames(styles.textFieldWrap, className)}>
       <span>{name}</span>
       <textarea
-        id={name}
+        id={id}
         name={name}
         value={value}
         className={styles.textField}

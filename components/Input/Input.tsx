@@ -5,8 +5,16 @@ import { TInput } from "./@types";
 import styles from "./Input.module.scss";
 
 export default function Input(props: TInput) {
-  const { name, placeholder, setValue, value, className, type, uploadText } =
-    props;
+  const {
+    name,
+    id,
+    placeholder,
+    setValue,
+    value,
+    className,
+    type,
+    uploadText,
+  } = props;
   const [imagePreview, setImagePreview] = useState("");
 
   const onSetValue = (event) => {
@@ -23,7 +31,7 @@ export default function Input(props: TInput) {
       return (
         <div className={styles.inputFIle}>
           <input
-            id={name}
+            id={id}
             type={type}
             name={name}
             onChange={(event) => {
@@ -58,7 +66,8 @@ export default function Input(props: TInput) {
 
     return (
       <input
-        id={name}
+        id={id}
+        name={name}
         required
         value={value}
         placeholder={placeholder}

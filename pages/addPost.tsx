@@ -106,6 +106,7 @@ export default function AddPost() {
           />
           <Input
             name={"Post title"}
+            id={"Post title"}
             placeholder={"Write your title"}
             setValue={checkOnEmpty}
             value={title}
@@ -113,6 +114,7 @@ export default function AddPost() {
           />
 
           <TextField
+            id={"Post Text"}
             name={"Post Text"}
             placeholder={"It is a long established fact that a..."}
             setValue={checkOnEmpty}
@@ -121,6 +123,7 @@ export default function AddPost() {
           />
 
           <Input
+            id={"Post date"}
             name={"Post date"}
             placeholder={"May 19th 2020"}
             setValue={checkOnEmpty}
@@ -129,6 +132,7 @@ export default function AddPost() {
           />
 
           <Input
+            id={"Post Image"}
             name={"Post Image"}
             setValue={checkOnEmpty}
             className={styles.inputWidget}

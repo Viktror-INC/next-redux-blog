@@ -1,8 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { TUserLogin } from "../../store/slice/userLogins/@types";
-import { setLogin } from "../../store/slice/userLogins/userLogin";
 import LoginMenu from "../LoginMenu/LoginMenu";
 import { TLoginButtons } from "./@types";
 import styles from "./LoginButtons.module.scss";

@@ -38,7 +38,9 @@ export default function LogInForm(props: TLogInForm) {
 
   const checkOnEmpty = (event) => {
     const { id, value } = event.target;
+
     setWrongInput(false);
+
     switch (id) {
       case "Name":
         setUserName(value);
@@ -55,7 +57,7 @@ export default function LogInForm(props: TLogInForm) {
       onSubmit={(event) => event.preventDefault()}
     >
       <Input
-        name={"Name"}
+        id={"Name"}
         placeholder={"user name"}
         setValue={checkOnEmpty}
         value={userName}
@@ -64,7 +66,7 @@ export default function LogInForm(props: TLogInForm) {
         })}
       />
       <Input
-        name={"Password"}
+        id={"Password"}
         placeholder={"123456"}
         setValue={checkOnEmpty}
         value={password}

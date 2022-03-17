@@ -12,7 +12,6 @@
     list-style: none;
     text-align: center;
     padding: 10px 0;
-    
 
     @media only screen and (max-width: $tab) {
       background-color: $greyNormal;
@@ -21,6 +20,10 @@
     a {
       color: $black;
       transition: all 0.3s linear;
+
+      @media only screen and (max-width: $mob) {
+        font-size: 22px;
+      }
 
       &:hover {
         color: $white;

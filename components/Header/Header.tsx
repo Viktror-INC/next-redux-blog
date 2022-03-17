@@ -6,12 +6,10 @@ import Image from "next/image";
 import menuList from "/src/data/menuList.json";
 // @ts-ignore
 import socailList from "/src/data/socialList.json";
-import Input from "../Input/Input";
 import LogInForm from "../LogInForm/LogInForm";
-import { useSelector } from "react-redux";
-import { TUserLogin } from "../../store/slice/userLogins/@types";
 import LoginButtons from "../LoginButtons/LoginButtons";
 import Link from "next/link";
+import Search from "../Search/Search";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -61,15 +59,7 @@ export default function Header() {
               </a>
             </Link>
           </div>
-          <div className={styles.search}>
-            <Image
-              src="/images/search-line.png"
-              width={20}
-              height={20}
-              alt="search"
-            />
-            <input placeholder="Search..." />
-          </div>
+          <Search />
           <nav className={styles.navigateWrap}>
             <div className={styles.leftSideMenu}>
               <ul className={styles.navigate}>
