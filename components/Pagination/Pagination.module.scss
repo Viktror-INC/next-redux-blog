@@ -1,0 +1,30 @@
+@import "/styles/global.scss";
+.paginationWrap {
+  margin-top: 20px;
+  display: flex;
+  column-gap: 5px;
+
+  ul {
+    display: flex;
+    column-gap: 5px;
+  }
+
+  button {
+    background-color: $greyNormal;
+    border: none;
+    padding: 10px;
+  }
+}
+
+.number {
+  padding: 10px;
+  background-color: $grey;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.activeNumber {
+  background-color: $greyNormal;
+}
