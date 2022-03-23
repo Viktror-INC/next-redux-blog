@@ -48,9 +48,6 @@ export default function AddPost() {
 
   const sendForm = async () => {
     setInvalidFields(validateFields());
-
-    console.log(validateFields());
-
     if (validateFields().length == 0 && reversePosts) {
       const lastPostId = reversePosts[0].id;
       const data = {
