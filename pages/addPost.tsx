@@ -1,23 +1,23 @@
-import axios from "axios";
-import moment from "moment";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
-import Input from "../components/Input/Input";
-import Select from "../components/Select/Select";
-import TextField from "../components/TextField/TextField";
-import { TPostsSlice } from "../store/slice/postsSlice/@types";
-import { setPosts } from "../store/slice/postsSlice/postsSlice";
-import styles from "/styles/AddPost.module.scss";
+import axios from 'axios';
+import moment from 'moment';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+import Input from '../components/Input/Input';
+import Select from '../components/Select/Select';
+import TextField from '../components/TextField/TextField';
+import { TPostsSlice } from '../store/slice/postsSlice/@types';
+import { setPosts } from '../store/slice/postsSlice/postsSlice';
+import styles from '/styles/AddPost.module.scss';
 
 export default function AddPost() {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [date, setDate] = useState(moment().format("MMM Do YY") || "");
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
+  const [date, setDate] = useState(moment().format('MMM Do YY') || '');
   const [image, setImage] = useState();
-  const [postType, setPostType] = useState("");
-  const defaultValuePost = "Choose post type";
+  const [postType, setPostType] = useState('');
+  const defaultValuePost = 'Choose post type';
   const [invalidFields, setInvalidFields] = useState([]);
   const dispatch = useDispatch();
   const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
@@ -26,10 +26,10 @@ export default function AddPost() {
   const uploadImage = async () => {
     if (image) {
       const formData = new FormData();
-      formData.append("file", image);
-      formData.append("upload_preset", "coffee");
+      formData.append('file', image);
+      formData.append('upload_preset', 'coffee');
       const { data } = await axios.post(
-        "https://api.cloudinary.com/v1_1/cofee2456/image/upload",
+        'https://api.cloudinary.com/v1_1/cofee2456/image/upload',
         formData
       );
       return data.secure_url;
@@ -37,9 +37,9 @@ export default function AddPost() {
   };
 
   const clearForm = () => {
-    setTitle("");
-    setText("");
-    setDate("");
+    setTitle('');
+    setText('');
+    setDate('');
     setPostType(defaultValuePost);
   };
 
@@ -56,7 +56,7 @@ export default function AddPost() {
       };
 
       dispatch(setPosts(data));
-      axios.post("https://6229bec8be12fc4538a69297.mockapi.io/Posts", data);
+      axios.post('https://6229bec8be12fc4538a69297.mockapi.io/Posts', data);
       clearForm();
     }
   };
@@ -65,28 +65,28 @@ export default function AddPost() {
     const { id, value, files } = event.target;
 
     switch (id) {
-      case "Post title":
+      case 'Post title':
         setTitle(value);
         break;
-      case "Post Text":
+      case 'Post Text':
         setText(value);
         break;
-      case "Post date":
+      case 'Post date':
         setDate(value);
         break;
-      case "Post Image":
+      case 'Post Image':
         setImage(files[0]);
         break;
 
       /**Posts types */
-      case "Big post":
-        setPostType("big");
+      case 'Big post':
+        setPostType('big');
         break;
-      case "Other post":
-        setPostType("other");
+      case 'Other post':
+        setPostType('other');
         break;
-      case "Main post":
-        setPostType("main");
+      case 'Main post':
+        setPostType('main');
         break;
     }
   };
@@ -100,43 +100,43 @@ export default function AddPost() {
           onSubmit={(event) => event.preventDefault()}
         >
           <Select
-            options={["Big post", "Other post", "Main post"]}
+            options={['Big post', 'Other post', 'Main post']}
             setValue={checkOnEmpty}
             defaultValue={defaultValuePost}
           />
           <Input
-            name={"Post title"}
-            id={"Post title"}
-            placeholder={"Write your title"}
+            name={'Post title'}
+            id={'Post title'}
+            placeholder={'Write your title'}
             setValue={checkOnEmpty}
             value={title}
             className={styles.inputWidget}
           />
 
           <TextField
-            id={"Post Text"}
-            name={"Post Text"}
-            placeholder={"It is a long established fact that a..."}
+            id={'Post Text'}
+            name={'Post Text'}
+            placeholder={'It is a long established fact that a...'}
             setValue={checkOnEmpty}
             value={text}
             className={styles.inputWidget}
           />
 
           <Input
-            id={"Post date"}
-            name={"Post date"}
-            placeholder={"May 19th 2020"}
+            id={'Post date'}
+            name={'Post date'}
+            placeholder={'May 19th 2020'}
             setValue={checkOnEmpty}
             value={date}
             className={styles.inputWidget}
           />
 
           <Input
-            id={"Post Image"}
-            name={"Post Image"}
+            id={'Post Image'}
+            name={'Post Image'}
             setValue={checkOnEmpty}
             className={styles.inputWidget}
-            uploadText={"Upload image"}
+            uploadText={'Upload image'}
             type="file"
           />
           <button className={styles.addPostButton} onClick={() => sendForm()}>
