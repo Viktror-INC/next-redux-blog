@@ -1,9 +1,10 @@
-@import "/styles/global.scss";
+@import '/styles/global.scss';
 
 .selectWrap {
   width: 100%;
   position: relative;
   border-radius: 10px;
+  border: 3px solid transparent;
 }
 
 .currentValue {
@@ -56,4 +57,8 @@
 .showMenu {
   z-index: 2;
   opacity: 1;
+}
+
+.invalid {
+  border: 3px solid $red;
 }

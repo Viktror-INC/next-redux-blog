@@ -3,6 +3,7 @@ export type TTextField = {
   id?: string;
   placeholder: string;
   className?: string;
-  setValue: (event) => void;
+  invalid?: boolean;
   value: string;
+  setValue: (event) => void;
 };

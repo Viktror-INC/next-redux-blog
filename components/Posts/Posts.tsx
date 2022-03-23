@@ -1,10 +1,10 @@
-import classNames from "classnames";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import ButtonMore from "../ButtonMore/ButtonMore";
-import { TPosts } from "./@types";
-import styles from "./Posts.module.scss";
+import classNames from 'classnames';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import ButtonMore from '../ButtonMore/ButtonMore';
+import { TPosts } from './@types';
+import styles from './Posts.module.scss';
 
 export default function Posts(props: TPosts) {
   const { posts, className } = props;
@@ -14,11 +14,11 @@ export default function Posts(props: TPosts) {
       {posts.map((item, index) => {
         return (
           <li key={index}>
-            <div className={classNames("postBlock")}>
-              <div className={classNames("postImage")}>
+            <div className={classNames('postBlock')}>
+              <div className={classNames('postImage')}>
                 <Link
                   href={
-                    "/post/" + item.title.replace(/\s/g, "-") + "?id=" + item.id
+                    '/post/' + item.title.replace(/\s/g, '-') + '?id=' + item.id
                   }
                 >
                   <a>
@@ -32,30 +32,33 @@ export default function Posts(props: TPosts) {
                   </a>
                 </Link>
               </div>
-              <div className={classNames("textBLock")}>
+              <div className={classNames('textBLock')}>
                 <Link
                   href={
-                    "/post/" + item.title.replace(/\s/g, "-") + "?id=" + item.id
+                    '/post/' + item.title.replace(/\s/g, '-') + '?id=' + item.id
                   }
                 >
                   <a className={styles.postLink}>
                     <h3>{item.title}</h3>
                   </a>
                 </Link>
-                <span className={styles.otherPostDescrip}>
-                  {item.text.substring(0, 150)}...
-                </span>
+                <span
+                  className={styles.otherPostDescrip}
+                  dangerouslySetInnerHTML={{
+                    __html: item.text.substring(0, 150) + '...',
+                  }}
+                ></span>
               </div>
             </div>
             <div
-              className={classNames(styles.textBLockBottom, "textBLockBottom")}
+              className={classNames(styles.textBLockBottom, 'textBLockBottom')}
             >
               <span className={styles.date}>{item.date}</span>
 
               <ButtonMore
-                text={"Read more"}
+                text={'Read more'}
                 link={
-                  "/post/" + item.title.replace(/\s/g, "-") + "?id=" + item.id
+                  '/post/' + item.title.replace(/\s/g, '-') + '?id=' + item.id
                 }
               />
             </div>

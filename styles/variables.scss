@@ -3,7 +3,6 @@
 $tab: 860px;
 $mob: 560px;
 
-
 /*Colors*/
 
 /**White*/
@@ -11,12 +10,15 @@ $white: #ffffff;
 
 /**Grey*/
 $grey: #fbfbfb;
-$greyNormal:#d5dce7;
+$greyNormal: #d5dce7;
 $greyDark: #728197;
-$greyTransparent: rgba(114, 129, 151, .5);
+$greyTransparent: rgba(114, 129, 151, 0.5);
 
 /**Purple*/
-$purple: #6B46C1;
+$purple: #6b46c1;
 
 /**Black*/
 $black: #000000;
+
+/*Red*/
+$red: #fc6161;

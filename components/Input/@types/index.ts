@@ -3,8 +3,9 @@ export type TInput = {
   id?: string;
   placeholder?: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  value?: string;
+  value?: string | Blob | MediaSource;
   className?: string;
   type?: string;
   uploadText?: string;
+  invalid?: boolean;
 };

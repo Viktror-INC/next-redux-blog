@@ -1,4 +1,4 @@
-@import "/styles/global.scss";
+@import '/styles/global.scss';
 .paginationWrap {
   margin-top: 20px;
   display: flex;
@@ -13,6 +13,7 @@
     background-color: $greyNormal;
     border: none;
     padding: 10px;
+    cursor: pointer;
   }
 }
 

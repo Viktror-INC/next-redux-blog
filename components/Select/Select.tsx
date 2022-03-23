@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import { TSelect } from "./@types";
-import styles from "./Select.module.scss";
+import classNames from 'classnames';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { TSelect } from './@types';
+import styles from './Select.module.scss';
 
 export default function Select(props: TSelect) {
-  const { options, defaultValue, setValue } = props;
+  const { options, defaultValue, invalid = false, setValue } = props;
   const [selectValue, setSelectValue] = useState(defaultValue);
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
@@ -18,12 +18,16 @@ export default function Select(props: TSelect) {
 
   /**Check if ckick on non focus element */
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   return (
-    <div className={styles.selectWrap}>
+    <div
+      className={classNames(styles.selectWrap, {
+        [styles.invalid]: invalid,
+      })}
+    >
       <span
         className={styles.currentValue}
         onClick={() => {

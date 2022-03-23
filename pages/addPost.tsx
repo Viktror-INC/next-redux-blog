@@ -1,6 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -23,6 +23,8 @@ export default function AddPost() {
   const { posts } = useSelector((state: TPostsSlice) => state.postsSlice);
   const reversePosts = [...posts].reverse();
 
+  const formRef = useRef(null);
+
   const uploadImage = async () => {
     if (image) {
       const formData = new FormData();
@@ -36,15 +38,20 @@ export default function AddPost() {
     }
   };
 
-  const clearForm = () => {
+  const clearForm = (event) => {
     setTitle('');
     setText('');
-    setDate('');
+    setDate(moment().format('MMM Do YY'));
+    setImage(undefined);
     setPostType(defaultValuePost);
   };
 
   const sendForm = async () => {
-    if (title && text && date && image && postType && reversePosts) {
+    setInvalidFields(validateFields());
+
+    console.log(validateFields());
+
+    if (validateFields().length == 0 && reversePosts) {
       const lastPostId = reversePosts[0].id;
       const data = {
         id: Number(lastPostId) + 1,
@@ -57,38 +64,70 @@ export default function AddPost() {
 
       dispatch(setPosts(data));
       axios.post('https://6229bec8be12fc4538a69297.mockapi.io/Posts', data);
-      clearForm();
+      clearForm(event);
     }
   };
 
-  const checkOnEmpty = (event) => {
+  const setValue = (event) => {
     const { id, value, files } = event.target;
 
+    setInvalidFields(invalidFields.filter((item) => item != id));
+
+    const removeInvalidSelect = () => {
+      setInvalidFields(invalidFields.filter((item) => item != 'postType'));
+    };
+
     switch (id) {
-      case 'Post title':
+      case 'title':
         setTitle(value);
         break;
-      case 'Post Text':
+      case 'text':
         setText(value);
         break;
-      case 'Post date':
+      case 'date':
         setDate(value);
         break;
-      case 'Post Image':
+      case 'image':
         setImage(files[0]);
         break;
 
       /**Posts types */
       case 'Big post':
         setPostType('big');
+        removeInvalidSelect();
         break;
       case 'Other post':
         setPostType('other');
+        removeInvalidSelect();
+
         break;
       case 'Main post':
         setPostType('main');
+        removeInvalidSelect();
         break;
     }
+  };
+
+  const validateFields = () => {
+    const invalidFields = [];
+
+    if (!title || title.length < 3) {
+      invalidFields.push('title');
+    }
+    if (!text || title.length < 10) {
+      invalidFields.push('text');
+    }
+    if (!date || date != moment().format('MMM Do YY')) {
+      invalidFields.push('date');
+    }
+    if (!image) {
+      invalidFields.push('image');
+    }
+    if (!postType) {
+      invalidFields.push('postType');
+    }
+
+    return invalidFields;
   };
 
   return (
@@ -96,48 +135,55 @@ export default function AddPost() {
       <Header />
       <div className={styles.container}>
         <form
+          ref={formRef}
           className={styles.postForm}
           onSubmit={(event) => event.preventDefault()}
         >
           <Select
             options={['Big post', 'Other post', 'Main post']}
-            setValue={checkOnEmpty}
+            setValue={setValue}
             defaultValue={defaultValuePost}
+            invalid={invalidFields.includes('postType')}
           />
           <Input
             name={'Post title'}
-            id={'Post title'}
+            id={'title'}
             placeholder={'Write your title'}
-            setValue={checkOnEmpty}
+            setValue={setValue}
             value={title}
             className={styles.inputWidget}
+            invalid={invalidFields.includes('title')}
           />
 
           <TextField
-            id={'Post Text'}
+            id={'text'}
             name={'Post Text'}
             placeholder={'It is a long established fact that a...'}
-            setValue={checkOnEmpty}
+            setValue={setValue}
             value={text}
             className={styles.inputWidget}
+            invalid={invalidFields.includes('text')}
           />
 
           <Input
-            id={'Post date'}
+            id={'date'}
             name={'Post date'}
             placeholder={'May 19th 2020'}
-            setValue={checkOnEmpty}
+            setValue={setValue}
             value={date}
             className={styles.inputWidget}
+            invalid={invalidFields.includes('date')}
           />
 
           <Input
-            id={'Post Image'}
+            id={'image'}
             name={'Post Image'}
-            setValue={checkOnEmpty}
+            setValue={setValue}
             className={styles.inputWidget}
             uploadText={'Upload image'}
             type="file"
+            invalid={invalidFields.includes('image')}
+            value={image}
           />
           <button className={styles.addPostButton} onClick={() => sendForm()}>
             AddPost
